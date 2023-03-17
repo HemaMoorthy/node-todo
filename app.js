@@ -13,7 +13,7 @@ con.on('open',()=>{
 console.log("Connected.......");
 })
 
-
+app.use(express.json)
 const home = require('../node-todo/routes/home')
 app.use('/home',home)
 
