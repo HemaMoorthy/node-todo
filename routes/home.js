@@ -43,7 +43,15 @@ router.post('/',async(req,res)=>{
 })
 
 router.patch('/',async(req,res)=>{
-
+    try{
+        const home = await Home.findById(req.params.id)
+        home.name = req.body.name
+        const h1 = await home.save()
+        res.json(h1)
+    }
+    catch(err){
+        res.send("Error"+err)
+    }
 }
 )
 
