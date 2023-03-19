@@ -16,6 +16,16 @@ router.get('/',async(req,res)=>{
     res.send("Get the request")
 })
 
+router.get('/:id',async(req,res)=>{
+    try{
+        const home = await Home.findById(req.params.id)
+        res.json(home)
+    }
+    catch(err){
+        res.send("Error" + err)
+    }
+})
+
 router.post('/',async(req,res)=>{
     const home = new Home({
         name:req.body.name,
@@ -32,5 +42,9 @@ router.post('/',async(req,res)=>{
     }
 })
 
+router.patch('/',async(req,res)=>{
+
+}
+)
 
 module.exports=router
